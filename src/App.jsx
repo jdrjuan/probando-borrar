@@ -10,9 +10,7 @@ function App() {
     }, []);    
 
     return (
-        <main className="container">
-            <h1 className="display-2">Proyecto</h1>
-            <hr />
+        <main className="container mt-4">
             <Routes />
         </main>
     );
