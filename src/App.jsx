@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import './App.css';
-import Products from "./pages/Products";
+import Routes from './routers/routes';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
         <main className="container">
             <h1 className="display-2">Proyecto</h1>
             <hr />
-            <Products />
+            <Routes />
         </main>
     );
 };
