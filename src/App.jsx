@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import './App.css';
 import Routes from './routers/routes';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -10,9 +11,14 @@ function App() {
     }, []);    
 
     return (
-        <main className="container mt-4">
-            <Routes />
-        </main>
+        <>
+            <header>
+                <Navbar />
+            </header>
+            <main className="container mt-4">
+                <Routes />
+            </main>
+        </>
     );
 };
 
