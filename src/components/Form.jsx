@@ -2,7 +2,7 @@
 const Form = () => {
     return (
         <>
-            <h2>Form</h2>
+            <h2>Formulario</h2>
             <form className="w-50 border rounded-2 p-4 mb-5">
 
                 <div className="mb-3">
