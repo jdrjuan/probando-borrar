@@ -35,12 +35,18 @@ const Products = () => {
     return (
         <>
             <h1 className="display-3">Productos</h1>
-            <Form createProduct={createProduct} />
+            
+            <Form
+                createProduct={createProduct}
+                productToUpdate={productToUpdate}
+            />
+
             <Table
                 products={products}
                 deleteProduct={deleteProduct}
                 setProductToUpdate={setProductToUpdate}
             />
+
         </>
     );
 };

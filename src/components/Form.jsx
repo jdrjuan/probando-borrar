@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const Form = ({createProduct}) => {
+const Form = ({createProduct, productToUpdate}) => {
 
     const initialForm = {
         id: null,
@@ -13,6 +13,10 @@ const Form = ({createProduct}) => {
 
     const [form, setForm] = useState(initialForm);
     // console.log(form);
+
+    useEffect(() => {
+        productToUpdate ? setForm(productToUpdate) : setForm(initialForm);
+    }, [productToUpdate]);
 
     const handleChangeInput = e => {
         // console.log(`${e.target.name}: ${e.target.value}`);
