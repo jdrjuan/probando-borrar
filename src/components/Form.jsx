@@ -1,20 +1,21 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
-const Form = () => {
+const Form = ({createProduct}) => {
 
     const initialForm = {
         id: null,
         name: '',
         category: '',
         price: '',
-        imageUrl: '',
+        imageUrl: 'https://picsum.photos/seed/picture-new/300/300',
     };
 
     const [form, setForm] = useState(initialForm);
-    console.log(form);
+    // console.log(form);
 
     const handleChangeInput = e => {
-        console.log(`${e.target.name}: ${e.target.value}`);
+        // console.log(`${e.target.name}: ${e.target.value}`);
         setForm(
             {
                 ...form,
@@ -25,8 +26,16 @@ const Form = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('Enviando el producto', form);
+        // console.log('Enviando el producto', form);
+        createProduct(form);
         handleReset();
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Producto dado de alta con éxito",
+            showConfirmButton: false,
+            timer: 1500
+          });
     };
     
     const handleReset = () => {
