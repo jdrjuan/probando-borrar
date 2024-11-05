@@ -1,9 +1,45 @@
+import { useState } from "react";
 
 const Form = () => {
+
+    const initialForm = {
+        id: null,
+        name: '',
+        category: '',
+        price: '',
+        imageUrl: '',
+    };
+
+    const [form, setForm] = useState(initialForm);
+    console.log(form);
+
+    const handleChangeInput = e => {
+        console.log(`${e.target.name}: ${e.target.value}`);
+        setForm(
+            {
+                ...form,
+                [e.target.name]: e.target.value
+            }
+        );
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log('Enviando el producto', form);
+        handleReset();
+    };
+    
+    const handleReset = () => {
+        setForm(initialForm);
+    };
+
     return (
         <>
             <h2>Formulario</h2>
-            <form className="w-50 border rounded-2 p-4 mb-5">
+            <form
+                className="w-50 border rounded-2 p-4 mb-5"
+                onSubmit={handleSubmit}
+            >
 
                 <div className="mb-3">
                     <label
@@ -18,6 +54,8 @@ const Form = () => {
                         id="name"
                         name="name"
                         placeholder="Ej: TV"
+                        value={form.name}
+                        onChange={handleChangeInput}
                     />
                 </div>
 
@@ -34,6 +72,8 @@ const Form = () => {
                         id="category"
                         name="category"
                         placeholder="Ej: Entretenimiento"
+                        value={form.category}
+                        onChange={handleChangeInput}
                     />
                 </div>
                 
@@ -50,11 +90,19 @@ const Form = () => {
                         id="price"
                         name="price"
                         placeholder="Ej: 1500"
+                        value={form.price}
+                        onChange={handleChangeInput}
                     />
                 </div>
 
                 <button className="btn btn-primary me-2" type="submit">Enviar</button>
-                <button className="btn btn-danger" type="reset">Restablecer</button>
+                <button
+                    className="btn btn-danger"
+                    type="reset"
+                    onClick={handleReset}
+                >
+                    Restablecer
+                </button>
                 
             </form>
         </>
