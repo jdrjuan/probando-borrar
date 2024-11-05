@@ -21,6 +21,8 @@ const Products = () => {
     // CRUD -> D:DELETE -> DELETE
     const deleteProduct = id => {
         console.log(`❌: ${id}`);
+        const newProductsArray = products.filter(product => product.id !== id);
+        setProducts(newProductsArray)
     };
 
     return (

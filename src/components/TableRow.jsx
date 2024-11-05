@@ -1,9 +1,37 @@
+import Swal from "sweetalert2";
 
 const TableRow = (props) => {
     const {product, deleteProduct} = props;
 
     const handleClickBtnDeleteProduct = id => {
-        deleteProduct(id);
+        Swal.fire({
+            title: "¿Estás seguro de querer eliminar este producto?",
+            text: "Esta acción no se puede revertir.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#777",
+            confirmButtonText: "Eliminar",
+            cancelButtonText: "Cancelar",
+            focusCancel: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Producto eliminado",
+                    text: "El producto indicado fue eliminado con éxito.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                });
+                deleteProduct(id);
+            } else {
+                Swal.fire({
+                    title: "Operación cancelada",
+                    text: "El producto no fue eliminado.",
+                    icon: "info",
+                    confirmButtonColor: "#3085d6",
+                });
+            }
+        });
     };
 
     return (
