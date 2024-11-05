@@ -1,7 +1,6 @@
-import { productList } from "../constants/productList";
 import TableRow from "./TableRow";
 
-const Table = () => {
+const Table = ({products}) => {
     return (
         <>
             <h2>Table</h2>
@@ -14,11 +13,12 @@ const Table = () => {
                             <th>Nombre</th>
                             <th>Precio</th>
                             <th>Imagen</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        {productList.map(product =>
+                        {products.map(product =>
                             // Envía todas las props por separado
                             // <TableRow key={`product-${product.id}`} id={product.id} name={product.name} category={product.category} imageUrl={product.imageUrl} price={product.price} />
                             
