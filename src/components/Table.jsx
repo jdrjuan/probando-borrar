@@ -1,6 +1,6 @@
 import TableRow from "./TableRow";
 
-const Table = ({products}) => {
+const Table = ({products, deleteProduct}) => {
     return (
         <>
             <h2>Table</h2>
@@ -32,7 +32,11 @@ const Table = ({products}) => {
                             // <TableRow key={`product-${product.id}`} {product} />
                             
                             // Envía prop "product" con el objeto product dentro
-                            <TableRow key={`product-${product.id}`} product={product} />
+                            <TableRow
+                                key={`product-${product.id}`}
+                                product={product}
+                                deleteProduct={deleteProduct}
+                            />
                         )}          
 
                     </tbody>

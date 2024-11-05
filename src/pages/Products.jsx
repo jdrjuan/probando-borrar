@@ -20,14 +20,17 @@ const Products = () => {
 
     // CRUD -> D:DELETE -> DELETE
     const deleteProduct = id => {
-
+        console.log(`❌: ${id}`);
     };
 
     return (
         <>
             <h1 className="display-3">Productos</h1>
             <Form />
-            <Table products={products} />
+            <Table
+                products={products}
+                deleteProduct={deleteProduct}
+            />
         </>
     );
 };
