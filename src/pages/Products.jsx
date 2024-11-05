@@ -22,7 +22,13 @@ const Products = () => {
 
     // CRUD -> U:UPDATE -> PUT
     const updateProduct = updatedProduct => {
-
+        console.log(`✏️:`, updatedProduct);
+        const updatedProductsArray = products.map(product => 
+            product.id === updatedProduct.id
+                ? updatedProduct
+                : product
+            );
+        setProducts(updatedProductsArray);
     };
 
     // CRUD -> D:DELETE -> DELETE
@@ -38,7 +44,9 @@ const Products = () => {
             
             <Form
                 createProduct={createProduct}
+                updateProduct={updateProduct}
                 productToUpdate={productToUpdate}
+                setProductToUpdate={setProductToUpdate}
             />
 
             <Table

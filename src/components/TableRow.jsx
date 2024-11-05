@@ -5,7 +5,7 @@ const TableRow = (props) => {
 
     const handleClickBtnUpdateProduct = productToUpdate => {
         setProductToUpdate(productToUpdate);
-        console.log('Producto a modificar:', productToUpdate);
+        // console.log('Producto a modificar:', productToUpdate);
     };
 
     const handleClickBtnDeleteProduct = id => {

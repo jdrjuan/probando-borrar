@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const Form = ({createProduct, productToUpdate}) => {
+const Form = ({createProduct, updateProduct, productToUpdate, setProductToUpdate}) => {
 
     const initialForm = {
         id: null,
@@ -31,19 +31,32 @@ const Form = ({createProduct, productToUpdate}) => {
     const handleSubmit = e => {
         e.preventDefault();
         // console.log('Enviando el producto', form);
-        createProduct(form);
+
+        if (form.id === null) {
+            createProduct(form);    
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Producto dado de alta con éxito",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } else {
+            updateProduct(form);
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Producto modificado con éxito",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
         handleReset();
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Producto dado de alta con éxito",
-            showConfirmButton: false,
-            timer: 1500
-          });
     };
     
     const handleReset = () => {
         setForm(initialForm);
+        setProductToUpdate(null);
     };
 
     return (
