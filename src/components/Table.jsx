@@ -1,6 +1,6 @@
 import TableRow from "./TableRow";
 
-const Table = ({products, deleteProduct}) => {
+const Table = ({products, deleteProduct, setProductToUpdate}) => {
     return (
         <>
             <h2>Table</h2>
@@ -36,6 +36,7 @@ const Table = ({products, deleteProduct}) => {
                                 key={`product-${product.id}`}
                                 product={product}
                                 deleteProduct={deleteProduct}
+                                setProductToUpdate={setProductToUpdate}
                             />
                         )}          
 

@@ -1,7 +1,12 @@
 import Swal from "sweetalert2";
 
 const TableRow = (props) => {
-    const {product, deleteProduct} = props;
+    const {product, deleteProduct, setProductToUpdate} = props;
+
+    const handleClickBtnUpdateProduct = productToUpdate => {
+        setProductToUpdate(productToUpdate);
+        console.log('Producto a modificar:', productToUpdate);
+    };
 
     const handleClickBtnDeleteProduct = id => {
         Swal.fire({
@@ -49,7 +54,10 @@ const TableRow = (props) => {
                     Ver
                 </button>
 
-                <button className="btn btn-warning btn-sm">
+                <button
+                    className="btn btn-warning btn-sm"
+                    onClick={ () => handleClickBtnUpdateProduct(product) }
+                >
                     Modificar
                 </button>
 

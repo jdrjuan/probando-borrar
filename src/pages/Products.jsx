@@ -9,6 +9,8 @@ const Products = () => {
     const [products, setProducts] = useState(productList);
     // console.log(products);
 
+    const [productToUpdate, setProductToUpdate] = useState(null);
+
     // CRUD -> C:CREATE -> POST
     const createProduct = newProduct => {
         // newProduct.id = Date.now();
@@ -37,6 +39,7 @@ const Products = () => {
             <Table
                 products={products}
                 deleteProduct={deleteProduct}
+                setProductToUpdate={setProductToUpdate}
             />
         </>
     );
